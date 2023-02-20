@@ -1,14 +1,10 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
 // code wrapped within a function so it doesn't run until all the HTML elements have loaded
 $(function () {
   var today = dayjs();
   var timeHour = today.hour();
 
   //  displays day and date on ID = #currentDay
-  $("#currentDay").text(today.format("dddd, MMMM YYYY"));
+  $("#currentDay").text(today.format("dddd, MMMM DD, YYYY"));
 
   //   sets up click event
   $(".saveBtn").on("click", function () {
@@ -18,10 +14,10 @@ $(function () {
     var timeId = timeBlock.attr("id");
     var userText = timeBlock.children("textarea").val();
 
-    // console.log tests
-    console.log(buttonClick.parent());
-    console.log(timeBlock.attr("id"));
-    console.log(userText);
+    // <---------  console.log tests --------->
+    // console.log(buttonClick.parent());
+    // console.log(timeBlock.attr("id"));
+    // console.log(userText);
 
     //   sets local storage items
     localStorage.setItem(timeId, userText);
@@ -38,6 +34,7 @@ $(function () {
   $("#hour-16 .description").text(localStorage.getItem("hour-16"));
   $("#hour-17 .description").text(localStorage.getItem("hour-17"));
 
+  //   sets class of present, past or future depending on the classHour(timeID) and timeHour (actual time)
   $(".time-block").each(function () {
     var classHour = $(this).attr("id").split("-")[1];
 
