@@ -41,8 +41,17 @@ $(function () {
   $(".time-block").each(function () {
     var classHour = $(this).attr("id").split("-")[1];
     console.log(classHour);
+    console.log(timeHour);
 
     if (timeHour == classHour) {
+      $(this).addClass("present");
+      $(this).removeClass("future");
+      $(this).removeClass("past");
+    } else if (timeHour < classHour) {
+      $(this).removeClass("present");
+      $(this).removeClass("future");
+      $(this).addClass("past");
+    } else if (timeHour > classHour) {
       $(this).addClass("present");
       $(this).removeClass("future");
       $(this).removeClass("past");
