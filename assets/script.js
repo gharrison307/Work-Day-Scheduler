@@ -10,6 +10,7 @@ $(function () {
   //  displays day and date on ID = #currentDay
   $("#currentDay").text(today.format("dddd, MMMM YYYY"));
 
+  //   sets up click event
   $(".saveBtn").on("click", function () {
     //   declaring variables
     var buttonClick = $(this);
@@ -22,12 +23,21 @@ $(function () {
     console.log(timeBlock.attr("id"));
     console.log(userText);
 
-    //   set local storage items
+    //   sets local storage items
     localStorage.setItem(timeId, userText);
   });
 });
 
+// sets textarea to userText saved in local storage (if any)
 $("#hour-9 .description").text(localStorage.getItem("hour-9"));
+$("#hour-10 .description").text(localStorage.getItem("hour-10"));
+$("#hour-11 .description").text(localStorage.getItem("hour-11"));
+$("#hour-12 .description").text(localStorage.getItem("hour-12"));
+$("#hour-1 .description").text(localStorage.getItem("hour-1"));
+$("#hour-2 .description").text(localStorage.getItem("hour-2"));
+$("#hour-3 .description").text(localStorage.getItem("hour-3"));
+$("#hour-4 .description").text(localStorage.getItem("hour-4"));
+$("#hour-5 .description").text(localStorage.getItem("hour-5"));
 
 // TODO: Add a listener for click events on the save button. This code should
 // use the id in the containing time-block as a key to save the user input in
