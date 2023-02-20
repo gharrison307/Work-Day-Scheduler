@@ -14,4 +14,4 @@ This is the fifth module challenge of bootcamp. Using the starter code, I added 
 
 Please find this project's hosted webpage here: https://gharrison307.github.io/Work-Day-Scheduler/
 
-Please find this project's repository page here: https://github.com/gharrison307/module3challenge
+Please find this project's repository page here: https://github.com/gharrison307/Work-Day-Scheduler
