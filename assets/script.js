@@ -1,5 +1,6 @@
 // code wrapped within a function so it doesn't run until all the HTML elements have loaded
 $(function () {
+  // declaring variables
   var today = dayjs();
   var timeHour = today.hour();
 
@@ -19,11 +20,11 @@ $(function () {
     // console.log(timeBlock.attr("id"));
     // console.log(userText);
 
-    //   sets local storage items
+    //   sets local storage items (key of timeId and value of userText)
     localStorage.setItem(timeId, userText);
   });
 
-  // sets textarea to userText saved in local storage (if any)
+  // sets textarea to display userText saved in local storage (if any)
   $("#hour-9 .description").text(localStorage.getItem("hour-9"));
   $("#hour-10 .description").text(localStorage.getItem("hour-10"));
   $("#hour-11 .description").text(localStorage.getItem("hour-11"));
@@ -34,10 +35,12 @@ $(function () {
   $("#hour-16 .description").text(localStorage.getItem("hour-16"));
   $("#hour-17 .description").text(localStorage.getItem("hour-17"));
 
-  //   sets class of present, past or future depending on the classHour(timeID) and timeHour (actual time)
+  //   sets class of present, past or future depending on the classHour(timeID) and timeHour (actual time) on each element with a class of "time-block"
   $(".time-block").each(function () {
+    // splitting number from Id values (ex the "10" in id="hour-10")
     var classHour = $(this).attr("id").split("-")[1];
 
+    // if statements to determine which classes to add/remove
     if (timeHour == classHour) {
       $(this).addClass("present");
       $(this).removeClass("future");
